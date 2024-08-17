@@ -1,19 +1,7 @@
 // practice defining modules with hierarchy representing simple functions a restauraunt may use
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waiting_list() {}
+mod front_of_house;
 
-        fn seat_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+pub use crate::front_of_house::hosting;
 
 mod back_of_house {
     pub struct Breakfast {
@@ -38,8 +26,6 @@ mod back_of_house {
     }
 }
 
-use crate::front_of_house::hosting;
-
 pub fn eat_at_restaurant() {
     // absolute path
     hosting::add_to_waiting_list();
@@ -60,3 +46,4 @@ pub fn eat_at_restaurant() {
 // idioms
 // when bringing in functions into scope. Bring it's parent, this helps differentiate between locally defined functions and imported ones
 // when bringing structs, functions and others, it is good practice to bring the entire path into scope. Unless there is a clash of course
+// With clashing names of full path imports, the idiom is to rename the import
