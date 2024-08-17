@@ -21,7 +21,14 @@ mod back_of_house {
         seasonal_fruit: String,
     }
 
+    pub enum Apetizer {
+        Salad,
+        Soup,
+    }
+
     impl Breakfast {
+        // without this function, you cannot initialize an instance of "Breakfast" because seasonal_fruit is private.
+        // What if it was an optional field? 
         pub fn summer(toast: &str) -> Breakfast {
             Breakfast {
                 toast: String::from(toast),
@@ -43,4 +50,7 @@ pub fn eat_at_restaurant() {
     
     // uncommenting next line will not compile because seasonal fruit is private
     // meal.seasonal_fruit = String::from("blueberries");
+
+    let apetizer = back_of_house::Apetizer::Salad;
+    
 }
