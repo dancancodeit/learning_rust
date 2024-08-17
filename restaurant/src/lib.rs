@@ -38,12 +38,14 @@ mod back_of_house {
     }
 }
 
+use crate::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
     // absolute path
-    crate::front_of_house::hosting::add_to_waiting_list();
+    hosting::add_to_waiting_list();
 
     // relative path
-    front_of_house::hosting::add_to_waiting_list();
+    hosting::add_to_waiting_list();
 
     let mut meal = back_of_house::Breakfast::summer("Ryee");
     meal.toast = String::from("Wheat");
@@ -51,6 +53,6 @@ pub fn eat_at_restaurant() {
     // uncommenting next line will not compile because seasonal fruit is private
     // meal.seasonal_fruit = String::from("blueberries");
 
-    let apetizer = back_of_house::Apetizer::Salad;
-    
+    let mut apetizer = back_of_house::Apetizer::Salad;
+    apetizer = back_of_house::Apetizer::Soup;
 }
