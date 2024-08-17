@@ -56,3 +56,7 @@ pub fn eat_at_restaurant() {
     let mut apetizer = back_of_house::Apetizer::Salad;
     apetizer = back_of_house::Apetizer::Soup;
 }
+
+// idioms
+// when bringing in functions into scope. Bring it's parent, this helps differentiate between locally defined functions and imported ones
+// when bringing structs, functions and others, it is good practice to bring the entire path into scope. Unless there is a clash of course
